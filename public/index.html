@@ -1,7 +1,26 @@
 <!DOCTYPE html>
 <html lang="en-us">
-    <head>
-        <meta charset="UTF-8">
-        <title>Post To Blog</title>
-    </head>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Post To Blog</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <h2>Blog Entry</h2>
+
+    <form class="input_fields_wrap">
+        <label for="title">Title:</label><br>
+        <input type="text" id="title" name="title"><br>
+        <label for="blurb">Blurb:</label><br>
+        <textarea type="text" id="blurb" name="blurb"></textarea><br>
+        <label for="paragraph">Content:</label><br>
+        <textarea type="text" id="paragraph" name="paragraph"></textarea><br><br>
+    </form>
+    <button id="addParagraph">Add paragraph</button>
+    <button id="submitForm">Submit</button>
+    <script src="app.js"></script>
+</body>
+
 </html>
