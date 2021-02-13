@@ -1,36 +1,64 @@
-$('#submitForm').on("click", (event) => {
-    var thisId = $(this).attr("data-id");
-    var p1 = $("#paragraph").val();
-    var blogPost = {
-        title: $("#title").val(),
-        blurb: $("#blurb").val(),
-        paragraphs: [p1]
-    }
-    if (x > 0) {
-        let px = $("#paragraph" + x).val();
+var x = 0; //initlal text box count
+var p1 = $("#paragraph").val();
+var blogPost = {
+    title,
+    blurb,
+    paragraphs: []
+}
+contentArrayCombine = (n) => {
+    if (n == 0) {
+        blogPost.paragraphs.push($("#paragraph").val());
+        return;
+    };
+    if (n > 0) {
+        let px = $("#paragraph" + n).val();
         blogPost.paragraphs.push(px);
-        x--;
+        n--;
+        contentArrayCombine(n);
     }
-    //console.log(blogPost);
+}
+fillBlogObj = () => {
+    blogPost.title = $("#title").val()
+    blogPost.blurb = $("#blurb").val()
+}
+$('#submitForm').on("click", (e) => {
+    e.preventDefault();
+    var thisId = $(this).attr("data-id");
+    contentArrayCombine(x);
+    fillBlogObj();
+    console.log(blogPost.paragraphs);
     $.ajax({
         method: "POST",
         url: "/api/blogPost/" + thisId,
         data: blogPost
     }).then(res => {
-        $("#title").empty();
+        location.reload();
+        $("#title").val("");
         $("#blurb").empty();
         $("#paragraph").empty();
-    })
+    });
 });
 var wrapper = $(".input_fields_wrap"); //Fields wrapper
 var add_button = $("#addParagraph");
-var x = 1; //initlal text box count
 $(add_button).click(function (e) { //on add input button click
     e.preventDefault();
     x++; //text box increment
-    $(wrapper).append('<div><input type="text" id="paragraph' + x + '" name="mytext' + x + '"/><a href="#" class="remove_field">Remove</a></div>'); //add input box
+    $(wrapper).append('<div><label for="paragraph' + x + '">Content' + x + ':</label><br><textarea cols="100%" type="text" id="paragraph' + x + '" name="mytext' + x + '"></textarea><a href="#" class="remove_field">Remove</a></div>'); //add input box
+
+    $.ajax({
+        method: "GET",
+        url: "/api/blogPost",
+    }).then(res => {
+        console.log(res);
+    });
 });
 $(wrapper).on("click", ".remove_field", function (e) { //user click on remove text
     e.preventDefault(); $(this).parent('div').remove();
     x--;
 });
+
+$(document).ready(()=>{
+
+
+
+})

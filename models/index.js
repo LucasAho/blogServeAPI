@@ -1,3 +1,3 @@
 module.exports = {
-    blogPost: require("./blogPosts")
+    BlogPost: require("./blogPosts")
 }
