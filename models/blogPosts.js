@@ -20,6 +20,10 @@ const blogPostSchema = new Schema({
         trim: true,
         maxlength: 200
     },
+    genre: {
+        type: String,
+        required: true
+    },
     date: { type: Date, default: Date.now }
 }, { collection: 'blogDB' });
 

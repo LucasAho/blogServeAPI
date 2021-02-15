@@ -18,10 +18,14 @@ module.exports = {
         db.BlogPost
             .findById(req.params.id)
             .sort({ date: -1 })
-            .then(dbModel => {
-                console.log(req.params.id);
-                res.json(dbModel)
-                }    )
+            .then(dbModel => res.json(dbModel))
+            .catch(err => res.status(422).json(err));
+    },
+    findByGenre: function (req, res) {
+        db.BlogPost
+            .find({ "genre": req.params.genre })
+            .sort({ date: -1 })
+            .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },
     remove: function (req, res) {

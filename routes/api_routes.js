@@ -9,6 +9,7 @@ function api_routes(app) {
     //GET requests
     app.get("/blog/find/all", dbController.findAll);
     app.get("/blog/find/:id", dbController.findById);
+    app.get("/blog/find/:genre", dbController.findByGenre);
 
     //POST request
     app.post("/blog/new/:apiKey", dbController.create);
