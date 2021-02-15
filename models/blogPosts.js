@@ -24,6 +24,10 @@ const blogPostSchema = new Schema({
         type: String,
         required: true
     },
+    dateWritten: {
+        type: String,
+        maxLength: 20
+    },
     date: { type: Date, default: Date.now }
 }, { collection: 'blogDB' });
 
