@@ -16,6 +16,9 @@ function api_routes(app) {
 
     //DELETE requests
     app.delete("/blog/find/:id", dbController.remove)
+
+
+    app.get("/conlang/find/all", langController.findAll);
 }
 
 module.exports = api_routes;
