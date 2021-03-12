@@ -8,6 +8,7 @@ function api_routes(app) {
 
     //GET requests
     app.get("/blog/find/all", dbController.findAll);
+    app.get("/blog/find/recent", dbController.findOne);
     app.get("/blog/find/:id", dbController.findById);
     app.get("/blog/find/:genre", dbController.findByGenre);
 
@@ -18,7 +19,7 @@ function api_routes(app) {
     app.delete("/blog/find/:id", dbController.remove)
 
 
-    app.get("/conlang/find/all", langController.findAll);
+    //app.get("/conlang/find/all", langController.findAll);
 }
 
 module.exports = api_routes;
