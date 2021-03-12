@@ -4,7 +4,7 @@ module.exports = {
     findAll: function (req, res) {
         db.BlogPost
             .find(req.query)
-            .sort({ date: -1 })
+            .sort({ created_at: -1 })
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },
@@ -24,14 +24,14 @@ module.exports = {
     findById: function (req, res) {
         db.BlogPost
             .findById(req.params.id)
-            .sort({ date: -1 })
+            .sort({ created_at: -1 })
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },
     findByGenre: function (req, res) {
         db.BlogPost
             .find({ genre: req.params.genre })
-            .sort({ date: -1 })
+            .sort({ created_at: -1 })
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },
