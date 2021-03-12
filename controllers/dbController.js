@@ -10,7 +10,8 @@ module.exports = {
     },
     findOne: function (req, res) {
         db.BlogPost
-            .findOne({}, {}, { sort: { date: -1 } })
+            .findOne()
+            .sort({ date: -1 })
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },
