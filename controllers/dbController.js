@@ -8,12 +8,6 @@ module.exports = {
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },
-    findOne: function (req, res) {
-        db.BlogPost
-            .findOne({}, {}, { sort: { 'date' : -1 } })
-            .then(dbModel => res.json(dbModel))
-            .catch(err => res.status(422).json(err));
-    },
     create: function (req, res) {
         db.BlogPost
             .create(req.body)
@@ -23,13 +17,6 @@ module.exports = {
     findById: function (req, res) {
         db.BlogPost
             .findById(req.params.id)
-            .sort({ date: -1 })
-            .then(dbModel => res.json(dbModel))
-            .catch(err => res.status(422).json(err));
-    },
-    findByGenre: function (req, res) {
-        db.BlogPost
-            .find({ "genre": req.params.genre })
             .sort({ date: -1 })
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));

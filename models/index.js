@@ -1,4 +1,5 @@
 module.exports = {
     BlogPost: require("./blogPosts"),
-    ConLetter: require("./conLang")
+    User: require("./user"),
+    Sessions: require("./sessions")
 }
