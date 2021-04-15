@@ -2,6 +2,7 @@ const passport = require("../config/passport");
 const db = require("../models");
 const dbController = require("../controllers/dbController");
 const userController = require("../controllers/userController");
+const sessionsController = require("../controllers/sessionsController");
 
 function api_routes(app) {
     app.get("/", function (req, res) {
