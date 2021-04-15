@@ -28,7 +28,7 @@ const blogPostSchema = new Schema({
         type: String,
         maxLength: 20
     },
-    date: { type: Date, default: Date.now }
+    created_at: { type: Date, default: Date.now }
 }, { collection: 'blogDB' });
 
 const BlogPost = mongoose.model("BlogDB", blogPostSchema);
