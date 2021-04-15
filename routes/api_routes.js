@@ -4,7 +4,9 @@ const dbController = require("../controllers/dbController");
 const userController = require("../controllers/userController");
 
 function api_routes(app) {
-
+    app.get("/", function (req, res) {
+        res.send("Hello World");
+    });
     //////////////////////
     /////Blog Routes//////
     //////////////////////
