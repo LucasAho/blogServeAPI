@@ -8,6 +8,14 @@ module.exports = {
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },
+    findByGenre: function (req,res) {
+        db.BlogPost    
+            .findOne({
+                genre: req.params.topic
+            })
+            .then(dbModel => res.json(dbModel))
+            .catch(err => res.status(422).json(err));
+    },
     create: function (req, res) {
         db.BlogPost
             .create(req.body)
@@ -21,6 +29,8 @@ module.exports = {
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },
+    //findByTopic
+    //
     remove: function (req, res) {
         db.BlogPost
             .findByIdAndDelete(req.params.id)
