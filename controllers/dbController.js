@@ -3,7 +3,7 @@ const db = require("../models");
 module.exports = {
     findAll: function (req, res) {
         db.BlogPost
-            .find(req.query)
+            .find({})
             .sort({ created_at: -1 })
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
@@ -15,6 +15,13 @@ module.exports = {
             })
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
+    },
+    findGenres: function (req,res) {
+        db.BlogPost
+            .find({},
+            'genre')
+            .then(dbModel => res.json(dbModel))
+            .catch(err => res.status(422).json);
     },
     create: function (req, res) {
         db.BlogPost

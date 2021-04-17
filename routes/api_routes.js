@@ -12,15 +12,15 @@ function api_routes(app) {
     app.get("/blog/find/all", dbController.findAll);
     
     app.get("/blog/findByTopic/:topic", dbController.findByGenre);
+
+    app.get("/blog/findGenres", dbController.findGenres);
     
     app.get("/blog/find/:id", dbController.findById);
+
 
     //DELETE requests
     app.delete("/blog/find/:id", dbController.remove)
     
-    //////////////////////
-    /////SignIn Routes////
-    //////////////////////
 }
 
 module.exports = api_routes;
