@@ -21,7 +21,14 @@ module.exports = {
             .find({},
             'genre')
             .then(dbModel => res.json(dbModel))
-            .catch(err => res.status(422).json);
+            .catch(err => res.status(422).json(err));
+    },
+    findDataExcept: function (req, res) {
+        db.BlogPost
+            .find( { _id: { $ne: req.params.id } }, 
+            "genre", "title", "dateWritten")
+            .then(dbModel => res.json(dbModel) )
+            .catch(err => res.status(422).json(err));
     },
     create: function (req, res) {
         db.BlogPost

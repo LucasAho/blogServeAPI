@@ -11,7 +11,6 @@ const routes = require("./routes/api_routes");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors({ origin: true }));
-//app.use(express.static("index"));
 
 
 mongoose.connect(process.env.MONGODB_URI);

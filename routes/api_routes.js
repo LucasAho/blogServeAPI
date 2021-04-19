@@ -14,10 +14,12 @@ function api_routes(app) {
     app.get("/blog/findByTopic/:topic", dbController.findByGenre);
 
     app.get("/blog/findGenres", dbController.findGenres);
+
+    app.get("/blog/findGenres", dbController.findGenres);
     
     app.get("/blog/find/:id", dbController.findById);
 
-
+    app.get("/blog/findData/except/:id", dbController.findDataExcept);
     //DELETE requests
     app.delete("/blog/find/:id", dbController.remove)
     
