@@ -2,7 +2,7 @@ const db = require("../models");
 
 module.exports = {
     create: function (req, res) {
-        var data = req.body.data
+        var data = req.body.data;
         if (req.body.key === process.env.WORD_KEY) {
             db.WordModel
                 .create(data)

@@ -15,7 +15,7 @@ const wordSchema = new Schema({
     pos: {
         type: String,
         trim: true,
-        maxlength: 10,
+        maxlength: 15,
         required: true
     },
     sentence: {
