@@ -2,9 +2,10 @@ const db = require("../models");
 
 module.exports = {
     create: function (req, res) {
-        if (req.body.validate === "aholucascode@gmail.com") {
+        var data = req.body.data
+        if (req.body.key === process.env.WORD_KEY) {
             db.WordModel
-                .create(req.body.data)
+                .create(data)
                 .then(dbModel => res.json(dbModel))
                 .catch(err => res.status(422).json(err));
         }
