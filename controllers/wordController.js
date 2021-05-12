@@ -11,10 +11,7 @@ module.exports = {
     },
     findAll: function (req, res) {
         db.WordModel
-            .find(
-                {},
-                ["conlang", "english", "pos"]
-            )
+            .find({})
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },
