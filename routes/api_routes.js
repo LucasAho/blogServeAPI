@@ -26,7 +26,7 @@ function api_routes(app) {
     //////////////////////
     ////ConLang Routes////
     //////////////////////
-    //app.post("/api/conlang/tukren/wordlist", wordController.create);
+    app.post("/api/conlang/tukren/wordlist", wordController.create);
 
     app.get("/api/conlang/tukren/wordlist/:word", wordController.findOne);
     app.get("/api/conlang/tukren/wordlist", wordController.findAll);

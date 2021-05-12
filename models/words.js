@@ -15,11 +15,16 @@ const wordSchema = new Schema({
     pos: {
         type: String,
         trim: true,
-        maxlength: 10
+        maxlength: 10,
+        required: true
     },
     sentence: {
         type: String,
-        required: true
+    },
+    image: {
+        type: String,
+        trim: true,
+        maxlength: 200
     },
     etymology: {
         type: String
