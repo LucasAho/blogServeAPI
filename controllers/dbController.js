@@ -4,7 +4,6 @@ module.exports = {
     findAll: function (req, res) {
         db.BlogPost
             .find({})
-            .sort({ created_at: -1 })
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },
@@ -24,7 +23,6 @@ module.exports = {
             .catch(err => res.status(422).json(err));
     },
     findDataExcept: function (req, res) {
-        console.log(req.params.id)
         db.BlogPost
             .find( { _id: { $ne: req.params.id } }, 
             ["genre", "title", "dateWritten"])
