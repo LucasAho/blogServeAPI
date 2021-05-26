@@ -1,6 +1,7 @@
 const db = require("../models");
 const dbController = require("../controllers/dbController");
 const wordController = require("../controllers/wordController");
+const nodemailer = require('nodemailer');
 
 function api_routes(app) {
     app.get("/", function (req, res) {
@@ -34,9 +35,8 @@ function api_routes(app) {
     //////////////////////
     ////Email Route//////
     //////////////////////
-    app.post("/api/contact", 
-        function (req, res) {
-            let nodemailer = require('nodemailer');
+    app.post("/api/contact", function (req, res) {
+            console.log("Hello");
             const transporter = nodemailer.createTransport({
                 port: 465,
                 host: "smtp.gmail.com",
