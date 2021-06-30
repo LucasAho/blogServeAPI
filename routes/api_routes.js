@@ -15,6 +15,8 @@ function api_routes(app) {
     
     app.get("/api/blog/findByTopic/:topic", dbController.findByGenre);
 
+    app.get("/api/blog/findWhereTopic/:topic", dbController.findWhereGenre);
+
     app.get("/api/blog/findGenres", dbController.findGenres);
 
     app.get("/api/blog/find/:id", dbController.findById);

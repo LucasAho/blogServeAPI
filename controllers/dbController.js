@@ -15,6 +15,14 @@ module.exports = {
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },
+    findWhereGenre: function (req,res) {
+        db.BlogPost    
+            .find({
+                genre: req.params.topic
+            })
+            .then(dbModel => res.json(dbModel))
+            .catch(err => res.status(422).json(err));
+    },
     findGenres: function (req,res) {
         db.BlogPost
             .find({},
