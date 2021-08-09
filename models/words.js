@@ -21,14 +21,6 @@ const wordSchema = new Schema({
     sentence: {
         type: String,
     },
-    image: {
-        type: String,
-        trim: true,
-        maxlength: 200
-    },
-    etymology: {
-        type: String
-    },
     created_at: { type: Date, default: Date.now }
 }, { collection: 'wordDB' });
 
